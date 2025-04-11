@@ -18,7 +18,6 @@ context('Aliasing', () => {
 
     // when we reference the alias, we place an
     // @ in front of its name
-    cy.get('@firstBtn').click()
 
     cy.get('@firstBtn')
       .should('have.class', 'btn-success')
