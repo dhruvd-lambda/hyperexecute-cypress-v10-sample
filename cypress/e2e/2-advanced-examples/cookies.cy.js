@@ -13,6 +13,7 @@ context('Cookies', () => {
 
   it('cy.getCookie() - get a browser cookie', () => {
     // https://on.cypress.io/getcookie
+    cy.get('#getCookie .set-a-cookie').click()
 
     // cy.getCookie() yields a cookie object
     cy.getCookie('token').should('have.property', 'value', '123ABC')
@@ -29,6 +30,7 @@ context('Cookies', () => {
       // each cookie has these properties
       expect(cookies[0]).to.have.property('name', 'token')
       expect(cookies[0]).to.have.property('value', '123ABC')
+      expect(cookies[0]).to.have.property('httpOnly', false)
       expect(cookies[0]).to.have.property('secure', false)
       expect(cookies[0]).to.have.property('domain')
       expect(cookies[0]).to.have.property('path')
@@ -37,6 +39,7 @@ context('Cookies', () => {
 
   it('cy.setCookie() - set a browser cookie', () => {
     // https://on.cypress.io/setcookie
+    cy.getCookies().should('be.empty')
 
     cy.setCookie('foo', 'bar')
 
@@ -62,6 +65,7 @@ context('Cookies', () => {
     // https://on.cypress.io/clearcookies
     cy.getCookies().should('be.empty')
 
+    cy.get('#clearCookies .set-a-cookie').click()
 
     cy.getCookies().should('have.length', 1)
 
