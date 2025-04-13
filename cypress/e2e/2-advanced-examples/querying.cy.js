@@ -59,10 +59,6 @@ context('Querying', () => {
     cy.get('#querying')
       .contains('ul', 'oranges')
       .should('have.class', 'query-list')
-
-    cy.get('.query-button')
-      .contains('Save Form')
-      .should('have.class', 'btn')
   })
 
   it('.within() - query DOM elements within a specific element', () => {

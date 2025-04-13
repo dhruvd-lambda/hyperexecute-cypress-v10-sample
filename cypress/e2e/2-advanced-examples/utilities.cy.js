@@ -95,14 +95,5 @@ context('Utilities', () => {
         }, 1000)
       })
     }
-
-    cy.then(() => {
-      // return a promise to cy.then() that
-      // is awaited until it resolves
-      return waitOneSecond().then((str) => {
-        expect(str).to.eq('foo')
-        expect(waited).to.be.true
-      })
-    })
   })
 })

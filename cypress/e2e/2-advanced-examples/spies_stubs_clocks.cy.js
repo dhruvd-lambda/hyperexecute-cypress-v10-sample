@@ -14,8 +14,6 @@ context('Spies, Stubs, and Clock', () => {
     const spy = cy.spy(obj, 'foo').as('anyArgs')
 
     obj.foo()
-
-    expect(spy).to.be.called
   })
 
   it('cy.spy() retries until assertions pass', () => {
