@@ -9,7 +9,6 @@ context('Assertions', () => {
     it('.should() - make an assertion about the current subject', () => {
       // https://on.cypress.io/should
       cy.get('.assertion-table')
-        .find('tbody tr:last')
         .should('have.class', 'success')
         .find('td')
         .first()

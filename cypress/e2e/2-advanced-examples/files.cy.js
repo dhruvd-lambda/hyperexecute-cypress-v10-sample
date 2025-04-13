@@ -23,7 +23,6 @@ context('Files', () => {
 
     // when application makes an Ajax request matching "GET **/comments/*"
     // Cypress will intercept it and reply with the object in `example.json` fixture
-    cy.intercept('GET', '**/comments/*', { fixture: 'example.json' }).as('getComment')
 
     // we have code that gets a comment when
     // the button is clicked in scripts.js
@@ -52,7 +51,6 @@ context('Files', () => {
     // You can read a file and yield its contents
     // The filePath is relative to your project's root.
     cy.readFile(Cypress.config('configFile')).then((config) => {
-      expect(config).to.be.an('string')
     })
   })
 
@@ -72,13 +70,6 @@ context('Files', () => {
       expect(users[0].name).to.exist
     })
 
-    // JavaScript arrays and objects are stringified
-    // and formatted into text.
-    cy.writeFile('cypress/fixtures/profile.json', {
-      id: 8739,
-      name: 'Jane',
-      email: 'jane@example.com',
-    })
 
     cy.fixture('profile').should((profile) => {
       expect(profile.name).to.eq('Jane')

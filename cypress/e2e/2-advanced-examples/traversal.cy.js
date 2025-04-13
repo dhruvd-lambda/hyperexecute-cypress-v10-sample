@@ -15,6 +15,7 @@ context('Traversal', () => {
   it('.closest() - get closest ancestor DOM element', () => {
     // https://on.cypress.io/closest
     cy.get('.traversal-badge')
+      .closest('ul')
       .should('have.class', 'list-group')
   })
 
@@ -109,6 +110,7 @@ context('Traversal', () => {
   it('.prevUntil() - get all previous sibling DOM elements until el', () => {
     // https://on.cypress.io/prevuntil
     cy.get('.foods-list').find('#nuts')
+      .prevUntil('#veggies').should('have.length', 3)
   })
 
   it('.siblings() - get all sibling DOM elements', () => {

@@ -23,8 +23,6 @@ context('Cookies', () => {
     // https://on.cypress.io/getcookies
     cy.getCookies().should('be.empty')
 
-    cy.get('#getCookies .set-a-cookie').click()
-
     // cy.getCookies() yields an array of cookies
     cy.getCookies().should('have.length', 1).should((cookies) => {
       // each cookie has these properties
