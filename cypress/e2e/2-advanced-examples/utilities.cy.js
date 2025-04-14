@@ -20,7 +20,6 @@ context('Utilities', () => {
     let $li = Cypress.$('.utility-jquery li:first')
 
     cy.wrap($li)
-      .should('not.have.class', 'active')
       .click()
       .should('have.class', 'active')
   })

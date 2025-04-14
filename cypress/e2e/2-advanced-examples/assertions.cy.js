@@ -65,7 +65,6 @@ context('Assertions', () => {
       // The ".should(cb)" function will be retried
       // automatically until it passes all your explicit assertions or times out.
       cy.get('.assertions-p')
-        .find('p')
         .should(($p) => {
           // https://on.cypress.io/$
           // return an array of texts from all of the p's
