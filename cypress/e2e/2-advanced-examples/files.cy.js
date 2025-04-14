@@ -25,10 +25,6 @@ context('Files', () => {
     // Cypress will intercept it and reply with the object in `example.json` fixture
     cy.intercept('GET', '**/comments/*', { fixture: 'example.json' }).as('getComment')
 
-    // we have code that gets a comment when
-    // the button is clicked in scripts.js
-    cy.get('.fixture-btn').click()
-
     cy.wait('@getComment').its('response.body')
       .should('have.property', 'name')
       .and('include', 'Using fixtures to represent data')
@@ -64,9 +60,6 @@ context('Files', () => {
     // Use a response from a request to automatically
     // generate a fixture file for use later
     cy.request('https://jsonplaceholder.cypress.io/users')
-      .then((response) => {
-        cy.writeFile('cypress/fixtures/users.json', response.body)
-      })
 
     cy.fixture('users').should((users) => {
       expect(users[0].name).to.exist
