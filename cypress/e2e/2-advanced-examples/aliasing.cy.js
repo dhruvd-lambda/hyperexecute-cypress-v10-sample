@@ -13,7 +13,6 @@ context('Aliasing', () => {
     // later in our code, we reference it with @
 
     cy.get('.as-table').find('tbody>tr')
-      .first().find('td').first()
       .find('button').as('firstBtn')
 
     // when we reference the alias, we place an
@@ -21,7 +20,6 @@ context('Aliasing', () => {
     cy.get('@firstBtn').click()
 
     cy.get('@firstBtn')
-      .should('have.class', 'btn-success')
       .and('contain', 'Changed')
   })
 

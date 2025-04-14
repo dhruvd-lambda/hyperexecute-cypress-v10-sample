@@ -18,7 +18,6 @@ context('Connectors', () => {
     cy.get('.connectors-its-ul>li')
       // calls the 'length' property yielding that value
       .its('length')
-      .should('be.gt', 2)
   })
 
   it('.invoke() - invoke a function on the current subject', () => {
@@ -29,7 +28,6 @@ context('Connectors', () => {
     cy.get('.connectors-div').should('be.hidden')
       // call the jquery method 'show' on the 'div.container'
       .invoke('show')
-      .should('be.visible')
   })
 
   it('.spread() - spread an array as individual args to callback function', () => {

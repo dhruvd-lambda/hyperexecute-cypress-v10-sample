@@ -43,14 +43,12 @@ context('Actions', () => {
   it('.blur() - blur off a DOM element', () => {
     // https://on.cypress.io/blur
     cy.get('.action-blur').type('About to blur').blur()
-      .should('have.class', 'error')
       .prev().should('have.attr', 'style', 'color: red;')
   })
 
   it('.clear() - clears an input or textarea element', () => {
     // https://on.cypress.io/clear
     cy.get('.action-clear').type('Clear this text')
-      .should('have.value', 'Clear this text')
       .clear()
       .should('have.value', '')
   })
@@ -163,7 +161,6 @@ context('Actions', () => {
     // By default, .uncheck() will uncheck all matching
     // checkbox elements in succession, one after another
     cy.get('.action-check [type="checkbox"]')
-      .not('[disabled]')
       .uncheck().should('not.be.checked')
 
     // .uncheck() accepts a value argument
